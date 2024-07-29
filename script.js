@@ -11,23 +11,35 @@ const fruit = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackb
 
 function search(str) {
 	let results = [];
+	const val = str.toLowerCase();
 
-	// TODO
+	results = fruit.filter(f => f.toLowerCase().includes(val));
 
 	return results;
 }
 
 function searchHandler(e) {
-	// TODO
+	const inputVal = e.currentTarget.value;
+	const results = search(inputVal);
+	showSuggestions(results, inputVal);
 }
 
 function showSuggestions(results, inputVal) {
+	suggestions.innerHTML = '';
 
-	// TODO
+	if (inputVal) {
+		const suggestionsList = results.map(result => `<li>${result}</li>`).join('');
+		suggestions.innerHTML = suggestionsList;
+		suggestions.classList.add('has-suggestions');
+	} else {
+		suggestions.classList.remove('has-suggestions');
+	}
 }
 
 function useSuggestion(e) {
-	// TODO
+	input.value = e.target.innerText;
+	suggestions.innerHTML = '';
+	suggestions.classList.remove('has-suggestions');
 }
 
 input.addEventListener('keyup', searchHandler);

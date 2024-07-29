@@ -10,7 +10,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(to right, #ffde00 0%, #ff9900 100%);
+  background: linear-gradient(to right, #ffde00 0%, #ff9900 60%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,23 +31,23 @@ body {
 .search-container input {
   padding: 10px;
   font-size: 16px;
-  border: 2px solid #ddd;
+  border: 2px solid #da8402;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  background: rgba(255, 165, 0, 0.7);
-  color: #fff;
+  background: linear-gradient(to right, #f7e25b 0%, #ffbe5d 100%);
+  color: #232222;
 }
 
-.search-container input::placeholder {
-  color: #fff;
+.search-container input:placeholder {
+  color: #2624242a;
 }
 
 .search-container .suggestions {
   position: absolute;
   top: 100%;
   left: 0;
-  background: white;
-  border: 1px solid #ddd;
+  background: rgba(255, 204, 109, 0.7);
+  border: 1px solid #da8402;
   border-top: none;
   max-height: 150px;
   overflow-y: auto;
@@ -72,5 +72,5 @@ ul li {
 }
 
 ul li:hover {
-  background: #f0f0f0;
+  background: #ff9d00;
 }

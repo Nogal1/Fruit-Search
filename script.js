@@ -31,6 +31,12 @@ function showSuggestions(results, inputVal) {
 		const suggestionsList = results.map(result => `<li>${result}</li>`).join('');
 		suggestions.innerHTML = suggestionsList;
 		suggestions.classList.add('has-suggestions');
+
+		const suggestionItems = suggestions.querySelectorAll('li');
+		suggestionItems.forEach(item => {
+			item.addEventListener('mouseover', highlightSuggestion);
+			item.addEventListener('mouseout', removeHighlight);
+		});
 	} else {
 		suggestions.classList.remove('has-suggestions');
 	}
@@ -40,6 +46,14 @@ function useSuggestion(e) {
 	input.value = e.target.innerText;
 	suggestions.innerHTML = '';
 	suggestions.classList.remove('has-suggestions');
+}
+
+function highlightSuggestion(e) {
+	e.target.style.backgroundColor = '#ff9d00';
+}
+
+function removeHighlight(e) {
+	e.target.style.backgroundColor = '';
 }
 
 input.addEventListener('keyup', searchHandler);

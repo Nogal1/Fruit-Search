@@ -74,3 +74,7 @@ ul li {
 ul li:hover {
   background: #ff9d00;
 }
+
+ul li strong {
+  font-weight: bold;
+}

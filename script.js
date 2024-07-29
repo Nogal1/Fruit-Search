@@ -28,7 +28,11 @@ function showSuggestions(results, inputVal) {
 	suggestions.innerHTML = '';
 
 	if (inputVal) {
-		const suggestionsList = results.map(result => `<li>${result}</li>`).join('');
+		const suggestionsList = results.map(result => {
+			const regex = new RegExp(`(${inputVal})`, 'gi');
+			const highlighted = result.replace(regex, '<strong>$1</strong>');
+			return `<li>${highlighted}</li>`;
+		}).join('');
 		suggestions.innerHTML = suggestionsList;
 		suggestions.classList.add('has-suggestions');
 
@@ -49,7 +53,7 @@ function useSuggestion(e) {
 }
 
 function highlightSuggestion(e) {
-	e.target.style.backgroundColor = '#ff9d00';
+	e.target.style.backgroundColor = '#ddd';
 }
 
 function removeHighlight(e) {
